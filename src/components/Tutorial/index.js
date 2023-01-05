@@ -16,6 +16,10 @@ const Tutorial = () => {
             title: '7 reasons to sell your NFTsSpace exploration',
             banner: Image1,
         },
+        {
+            title: 'Good example to start blockchain...',
+            banner: Image1,
+        },
     ];
 
     return (

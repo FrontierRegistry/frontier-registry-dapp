@@ -1,4 +1,5 @@
 import { Col, Row } from "react-bootstrap";
+import { useNavigate } from 'react-router-dom';
 import Image1 from '../../assets/img/article1.jpeg'
 import Image2 from '../../assets/img/article2.jpeg'
 import Image4 from "../../assets/img/article4.png";
@@ -6,8 +7,10 @@ import Image5 from '../../assets/img/article5.png'
 import button from '../../assets/img/button.gif';
 import "./index.scss";
 
-const Blog = () => {
-    const recentBlogs = [
+const Research = () => {
+    const navigate = useNavigate();
+
+    const recentResearches = [
         {
             title: 'Mario Virtual World',
             banner: Image4,
@@ -29,8 +32,8 @@ const Blog = () => {
     ];
 
     return (
-        <Row className="blog-component">
-            <section className="new-blog">
+        <Row className="research-component">
+            <section className="new-research">
                 <button className="explainer-video">
                     Explainer Video
                 </button>
@@ -41,26 +44,26 @@ const Blog = () => {
                     <br /><br />
                     Science As A Public Good
                 </section>
-                <button className="publish">
+                <button className="publish" onClick={() => navigate('/new-research')}>
                     Publish Here
                 </button>
             </section>
-            <Row className="blogs">
+            <Row className="researches">
                 {
-                    recentBlogs.map((blog, key) => (
-                        <Col sm={4} key={key} className='blog-wrapper'>
-                            <div className="blog">
+                    recentResearches.map((research, key) => (
+                        <Col sm={4} key={key} className='research-wrapper'>
+                            <div className="research">
                                 <div className="banner">
-                                    <img src={blog.banner} />
+                                    <img src={research.banner} />
                                 </div>
                                 <div className="title">
-                                    {blog.title}
+                                    {research.title}
                                 </div>
                                 <div className="description">
-                                    {blog.description.slice(0, 80) + "..."}
+                                    {research.description.slice(0, 80) + "..."}
                                 </div>
                                 <button className="status">
-                                    {blog.status}
+                                    {research.status}
                                 </button>
                             </div>
                         </Col>
@@ -71,4 +74,4 @@ const Blog = () => {
     );
 }
 
-export default Blog;
+export default Research;

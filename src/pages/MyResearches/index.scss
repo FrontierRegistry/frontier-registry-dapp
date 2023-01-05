@@ -1,6 +1,6 @@
 @import "../../assets/scss/mixins";
 
-.my-blogs {
+.my-researches {
     margin-top: 90px;
 
     .sidebar {
@@ -32,18 +32,19 @@
         ;
     }
 
-    .my-blogs-component {
+    .my-researches-component {
         padding: 20px 40px 20px 10px;
         gap: 20px;
         display: flex;
         flex-direction: column;
+        z-index: -1;
 
-        .my-blogs-title {
+        .my-researches-title {
             font-size: 30px;
             margin: 10px 0;
         }
 
-        .my-blog-item {
+        .my-research-item {
             border: 1px solid black;
             padding: 10px 20px;
             border-radius: 20px;
@@ -51,13 +52,13 @@
             display: flex;
             align-items: center;
 
-            .my-blog-item-title {
+            .my-research-item-title {
                 text-align: start;
                 margin-bottom: 20px;
                 padding-left: 20px;
             }
 
-            .my-blog-item-datetime {
+            .my-research-item-datetime {
                 text-align: start;
                 border: 1px solid black;
                 border-radius: 20px;

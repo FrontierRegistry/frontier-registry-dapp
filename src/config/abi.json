@@ -146,7 +146,7 @@
         "type": "uint256"
       }
     ],
-    "name": "blogPublished",
+    "name": "researchPublished",
     "type": "event"
   },
   {
@@ -188,13 +188,13 @@
   },
   {
     "inputs": [],
-    "name": "getAllBlogs",
+    "name": "getAllResearches",
     "outputs": [
       {
         "components": [
           {
             "internalType": "uint256",
-            "name": "blogId",
+            "name": "researchId",
             "type": "uint256"
           },
           {
@@ -218,7 +218,7 @@
             "type": "uint256"
           }
         ],
-        "internalType": "struct FrontierDaoBlogNFT.Blog[]",
+        "internalType": "struct FrontierDaoResearchNFT.Research[]",
         "name": "",
         "type": "tuple[]"
       }
@@ -246,20 +246,33 @@
     "type": "function"
   },
   {
+    "inputs": [],
+    "name": "getCurrentId",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
     "inputs": [
       {
         "internalType": "uint256[]",
-        "name": "_blogIds",
+        "name": "_researchIds",
         "type": "uint256[]"
       }
     ],
-    "name": "getBlogs",
+    "name": "getResearches",
     "outputs": [
       {
         "components": [
           {
             "internalType": "uint256",
-            "name": "blogId",
+            "name": "researchId",
             "type": "uint256"
           },
           {
@@ -283,7 +296,7 @@
             "type": "uint256"
           }
         ],
-        "internalType": "struct FrontierDaoBlogNFT.Blog[]",
+        "internalType": "struct FrontierDaoResearchNFT.Research[]",
         "name": "",
         "type": "tuple[]"
       }
@@ -299,13 +312,13 @@
         "type": "address"
       }
     ],
-    "name": "getBlogsByWallet",
+    "name": "getResearchesByWallet",
     "outputs": [
       {
         "components": [
           {
             "internalType": "uint256",
-            "name": "blogId",
+            "name": "researchId",
             "type": "uint256"
           },
           {
@@ -329,22 +342,9 @@
             "type": "uint256"
           }
         ],
-        "internalType": "struct FrontierDaoBlogNFT.Blog[]",
+        "internalType": "struct FrontierDaoResearchNFT.Research[]",
         "name": "",
         "type": "tuple[]"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "getCurrentId",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
       }
     ],
     "stateMutability": "view",
@@ -444,7 +444,7 @@
         "type": "string"
       }
     ],
-    "name": "publishBlog",
+    "name": "publishResearch",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -538,7 +538,7 @@
         "type": "string"
       }
     ],
-    "name": "setBlogInfo",
+    "name": "setResearchInfo",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"

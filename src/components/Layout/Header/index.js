@@ -56,34 +56,40 @@ const Header = () => {
                 <BsNavbar.Brand>
                     <Link
                         className='d-flex align-items-center navbar-brand mr-0'
-                        to='#'
+                        to='/'
                     >
                         <div className='logo'><img src={logo}></img></div>
                     </Link>
                 </BsNavbar.Brand>
 
-                <div className="search">
+                {/* <div className="search">
                     <i className="fa fa-search"></i>
                     <input type="text" placeholder="Search Items and collections"></input>
-                </div>
+                </div> */}
 
                 <BsNavbar.Toggle aria-controls='responsive-navbar-nav' />
                 <BsNavbar.Collapse id='responsive-navbar-nav' className='nav-menu-wrap'>
                     <Nav role='navigation' className='ml-auto'>
-                        <NavDropdown
-                            title="Funding"
+                        <Link to='/' aria-current='page' className='custom-link-button custom-nav-link'>
+                            Home
+                        </Link>
+                        {/* <Link to='/new-research' aria-current='page' className='custom-link-button custom-nav-link'>
+                            Mint IP
+                        </Link> */}
+                        {/* <NavDropdown
+                            title="Mint IP"
                             className="funding-nav-dropdown"
                         >
                             <NavDropdown.Item><Link to='#'>Option 1</Link></NavDropdown.Item>
                             <NavDropdown.Item><Link to='#'>Option 2</Link></NavDropdown.Item>
-                        </NavDropdown>
-                        <Link to='/new-blog' aria-current='page' className='custom-link-button custom-nav-link'>
-                            New Blog
+                        </NavDropdown> */}
+                        <Link to='/new-research' aria-current='page' className='custom-link-button custom-nav-link'>
+                            New Research
                         </Link>
-                        <Link to='/my-blogs' aria-current='page' className='custom-link-button custom-nav-link'>
-                            My Blogs
+                        <Link to='/my-researches' aria-current='page' className='custom-link-button custom-nav-link'>
+                            My Researches
                         </Link>
-                        <Link to='#' aria-current='page' className='custom-link-button custom-nav-link'>
+                        {/* <Link to='#' aria-current='page' className='custom-link-button custom-nav-link'>
                             #DeSci
                         </Link>
                         <Link to='#' aria-current='page' className='custom-link-button custom-nav-link'>
@@ -91,7 +97,7 @@ const Header = () => {
                         </Link>
                         <Link to='#' aria-current='page' className='custom-link-button custom-nav-link'>
                             Publish
-                        </Link>
+                        </Link> */}
                         <Link
                             className='custom-logo d-flex align-items-center navbar-brand mr-0'
                             to='#'

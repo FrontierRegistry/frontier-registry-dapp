@@ -1,6 +1,6 @@
 import { CHAIN_NAMESPACES, /*CustomChainConfig*/ } from "@web3auth/base";
 
-export const contractAddress = '0x3679fBd8060fDFf74167377707A82A864B8f161C'
+export const contractAddress = '0x1C80436530d55c7189fccD6616dcD30e584Ae46d'
 // javascript
 export const CHAIN_CONFIG = {
   polygon: {
