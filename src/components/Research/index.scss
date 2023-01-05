@@ -1,9 +1,9 @@
 @import "../../assets/scss/mixins";
 
-.blog-component {
+.research-component {
     margin: 20px 0;
 
-    .new-blog {
+    .new-research {
         margin: 40px 0;
 
         button.explainer-video {
@@ -46,16 +46,16 @@
         }
     }
 
-    .blogs {
+    .researches {
         display: flex;
         color: white;
         padding: 0;
         margin: 0;
 
-        .blog-wrapper {
+        .research-wrapper {
             padding: 20px;
 
-            .blog {
+            .research {
                 background-color: grey;
                 height: 550px;
 

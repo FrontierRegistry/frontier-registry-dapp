@@ -17,7 +17,7 @@ const TitleConfirmModal = ({ show, handleClose, title, handleConfirm, setTitle})
                 <Modal.Body>
                     <Form>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                            <Form.Label>Please type the tile of your blog again</Form.Label>
+                            <Form.Label>Please type the tile of your research again</Form.Label>
                             <Form.Control
                                 autoFocus
                                 value={title}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation, } from 'react-router-dom';
 import { Row, Col, } from 'react-bootstrap';
 import Moment from 'react-moment';
 import moment from 'moment';
@@ -14,10 +14,10 @@ import "./index.scss";
 const web3 = new Web3(window.ethereum);
 const contract = new web3.eth.Contract(contractAbi, contractAddress);
 
-const MyBlogs = () => {
+const MyResearches = () => {
   const { provider, getAccounts } = useWeb3Auth();
   const [wallet, setWallet] = useState('');
-  const [myBlogs, setMyBlogs] = useState([]);
+  const [myResearches, setMyResearches] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -26,24 +26,36 @@ const MyBlogs = () => {
       const account = await getAccounts();
       setWallet(account[0]);
       console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>33333333333333333");
-      const myBlogList = await contract.methods.getBlogsByWallet(account[0]).call();
+      const myResearchList = await contract.methods.getResearchesByWallet(account[0]).call();
       console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>444444444444444");
-      console.log("my blogs: ", myBlogList);
-      const myBlogs = myBlogList.map((item, _) => (
+      console.log("my researches: ", myResearchList);
+      const myResearches = myResearchList.map((item, _) => (
         {
           title: item.title,
           content: item.content,
           dateTime: item.timestamp,
         }
       ));
-      setMyBlogs(myBlogs);
+      setMyResearches(myResearches);
 
-      console.log("my blogs: ", myBlogList);
+      console.log("my researches: ", myResearchList);
     })();
   }, [wallet, provider]);
 
+  const location = useLocation();
+  useEffect(() => {
+    if (location.hash) {
+      const elem = document.getElementById(location.hash.slice(1));
+      if (elem) {
+        elem.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    }
+  }, [location]);
+
   return (
-    <div className="my-blogs">
+    <div className="my-researches">
       <Row>
         <Col md="4" className='sidebar'>
           <div className='navlinks'>
@@ -63,24 +75,24 @@ const MyBlogs = () => {
             }
           </div>
         </Col>
-        <Col md="8" className='my-blogs-component'>
-          <div className='my-blogs-title'>
-            My Blogs
+        <Col md="8" className='my-researches-component'>
+          <div className='my-researches-title'>
+            My Researches
           </div>
           {
-            myBlogs.map((item, index) => (
+            myResearches.map((item, index) => (
               <div
-                className='my-blog-item'
+                className='my-research-item'
                 key={index}
               >
                 <div>
                   <div
-                    className='my-blog-item-title'>
+                    className='my-research-item-title'>
                     {item.title}
                   </div>
 
                   <div
-                    className='my-blog-item-datetime'>
+                    className='my-research-item-datetime'>
                     <Moment format="YYYY/MM/DD hh:mm:ss">
                       {new Date(parseInt(item.dateTime + '000'))}
                     </Moment>
@@ -89,7 +101,7 @@ const MyBlogs = () => {
 
                 <div
                   className='right-icon-wrapper'
-                  onClick={() => navigate(`/detail-blog/${index}`)}
+                  onClick={() => navigate(`/detail-research/${index}`)}
                 >
                   <AiOutlineRight />
                 </div>
@@ -103,4 +115,4 @@ const MyBlogs = () => {
   )
 }
 
-export default MyBlogs
+export default MyResearches

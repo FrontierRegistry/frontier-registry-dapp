@@ -57,23 +57,33 @@ const FooterMiddle = () => {
                     Resources
                 </p>
                 <p>
-                    Help center
+                    <a href='https://www.frontierdao.xyz/'>
+                        Help center
+                    </a>
                 </p>
                 <p>
-                    Platform status
+                    <a href='https://www.frontierdao.xyz/'>
+                        Platform status
+                    </a>
                 </p>
                 <p>
-                    Partners
+                    <a href='https://www.frontierdao.xyz/'>
+                        Partners
+                    </a>
                 </p>
 
                 <p className="title" style={{ marginTop: '20px' }}>
-                    FrontierDAO
+                    <a href='https://www.frontierdao.xyz/'>
+                        FrontierDAO
+                    </a>
                 </p>
                 <p>
-                    About FrontierRegistry
+                    <a href='https://www.frontierdao.xyz/'>
+                        About FrontierRegistry
+                    </a>
                 </p>
             </Col>
-        </Row>
+        </Row >
     );
 }
 

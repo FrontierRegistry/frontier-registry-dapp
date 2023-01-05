@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, } from 'react';
+import { useLocation, } from 'react-router-dom';
 import {
   Row,
   Col,
@@ -17,7 +18,7 @@ import contractAbi from '../../config/abi.json';
 const web3 = new Web3(window.ethereum);
 const contract = new web3.eth.Contract(contractAbi, contractAddress);
 
-const NewBlog = () => {
+const NewResearch = () => {
   const { provider, getAccounts } = useWeb3Auth();
   const [content, setContent] = useState('');
   const [title, setTitle] = useState('');
@@ -30,11 +31,11 @@ const NewBlog = () => {
     // close modal
     handleClose();
 
-    const newBlogId = await contract.methods.getCurrentId().call() + 1;
+    const newResearchId = await contract.methods.getCurrentId().call() + 1;
 
-    // publish blog to chain
+    // publish research to chain
     const JSONBody = {
-      name: `Frontier Dao Blog ${newBlogId}`,
+      name: `Frontier Dao Research ${newResearchId}`,
       description: title,
       image: 'https://mirror-media.imgix.net/nft/K9qSJMuXh47G5yr-3druc.jpg?h=null&w=null&auto=compress',
       attributes: [
@@ -49,7 +50,7 @@ const NewBlog = () => {
     console.log("success: ", success);
     if (success) {
       await contract.methods
-        .publishBlog(
+        .publishResearch(
           title,
           content,
           pinataUrl,
@@ -60,7 +61,7 @@ const NewBlog = () => {
           gasLimit: 2000000,
         });
 
-      window.alert("blog published");
+      window.alert("research published");
     }
   }
 
@@ -86,8 +87,20 @@ const NewBlog = () => {
     })();
   }, [provider]);
 
+  const location = useLocation();
+  useEffect(() => {
+    if (location.hash) {
+      const elem = document.getElementById(location.hash.slice(1));
+      if (elem) {
+        elem.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    }
+  }, [location]);
+
   return (
-    <div className="new-blog">
+    <div className="new-research">
       {/* <div className="react-notification-alert-container">   
         </div> */}
       <Row>
@@ -109,9 +122,9 @@ const NewBlog = () => {
             }
           </div>
         </Col>
-        <Col md="8" className='new-blog-component'>
-          <div className='new-blog-component-header'>
-            <h2 className='new-blog-text'>New Blog</h2>
+        <Col md="8" className='new-research-component'>
+          <div className='new-research-component-header'>
+            <h2 className='new-research-text'>New Research</h2>
             <div className='buttons'>
               <button
                 onClick={() => setIsPreview(!isPreview)}
@@ -156,4 +169,4 @@ const NewBlog = () => {
   )
 }
 
-export default NewBlog
+export default NewResearch

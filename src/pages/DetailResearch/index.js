@@ -11,11 +11,11 @@ import contractAbi from '../../config/abi.json';
 const web3 = new Web3(window.ethereum);
 const contract = new web3.eth.Contract(contractAbi, contractAddress);
 
-const DetailBlog = () => {
+const DetailResearch = () => {
   const { id } = useParams();
   const { provider, getAccounts } = useWeb3Auth();
   const [wallet, setWallet] = useState('');
-  const [myCurrentBlog, setMyCurrentBlog] = useState({});
+  const [myCurrentResearch, setMyCurrentResearch] = useState({});
 
   useEffect(() => {
     (async () => {
@@ -23,21 +23,21 @@ const DetailBlog = () => {
       const account = await getAccounts();
       setWallet(account[0]);
       console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>33333333333333333");
-      const myBlogList = await contract.methods.getBlogsByWallet(account[0]).call();
+      const myResearchList = await contract.methods.getResearchesByWallet(account[0]).call();
       console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>444444444444444");
-      console.log("my blogs: ", myBlogList);
-      const myCurrentBlog = {
-        title: myBlogList[id].title,
-        content: myBlogList[id].content.replace(/(?:\r\n|\r|\n)/g, '\n'),
-        dateTime: myBlogList[id].timestamp,
+      console.log("my researches: ", myResearchList);
+      const myCurrentResearch = {
+        title: myResearchList[id].title,
+        content: myResearchList[id].content.replace(/(?:\r\n|\r|\n)/g, '\n'),
+        dateTime: myResearchList[id].timestamp,
       };
-      setMyCurrentBlog(myCurrentBlog);
-      console.log("my current blog content: ", myCurrentBlog.content);
+      setMyCurrentResearch(myCurrentResearch);
+      console.log("my current research content: ", myCurrentResearch.content);
     })();
   }, [wallet, provider, id]);
 
   return (
-    <div className="detail-blog">
+    <div className="detail-research">
       <Row>
         <Col md="4" className='sidebar'>
           <div className='navlinks'>
@@ -57,17 +57,17 @@ const DetailBlog = () => {
             }
           </div>
         </Col>
-        <Col md="8" className='detail-blog-component'>
-          <div className='detail-blog-component-header'>
-            <h2 className='detail-blog-text'>{myCurrentBlog.title}</h2>
+        <Col md="8" className='detail-research-component'>
+          <div className='detail-research-component-header'>
+            <h2 className='detail-research-text'>{myCurrentResearch.title}</h2>
           </div>
           <div
             className='ckeditor-component-wrapper'
           >
             {
-              myCurrentBlog.content &&
+              myCurrentResearch.content &&
               <CKEditor
-                initData={myCurrentBlog.content}
+                initData={myCurrentResearch.content}
                 onInstanceReady={() => {
                   console.log("editor is ready");
                 }
@@ -83,4 +83,4 @@ const DetailBlog = () => {
   )
 }
 
-export default DetailBlog
+export default DetailResearch
