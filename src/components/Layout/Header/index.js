@@ -1,10 +1,17 @@
 import React, { useState, useEffect } from "react"
-import { Navbar as BsNavbar, NavItem, Nav, Container, NavDropdown, Modal, Spinner } from 'react-bootstrap';
+import {
+    Navbar as BsNavbar,
+    NavItem,
+    Nav,
+    Container,
+    NavDropdown,
+    Modal,
+    Spinner,
+    Button,
+} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { Tooltip as ReactTooltip } from "react-tooltip";
 import { useWeb3Modal } from '../../../services/Web3ModalContext'
 import logo from '../../../assets/img/logo.jpg';
-import userAvatar from '../../../assets/img/user-avatar.svg';
 import './index.scss';
 
 const Header = () => {
@@ -67,8 +74,8 @@ const Header = () => {
                         <Link to='/new-research' aria-current='page' className='custom-link-button custom-nav-link'>
                             New Research
                         </Link>
-                        <Link to='/my-researches' aria-current='page' className='custom-link-button custom-nav-link'>
-                            My Researches
+                        <Link to='/my-research' aria-current='page' className='custom-link-button custom-nav-link'>
+                            My Research
                         </Link>
                         {/* <Link to='#' aria-current='page' className='custom-link-button custom-nav-link'>
                             #DeSci
@@ -84,13 +91,17 @@ const Header = () => {
                             to='#'
                             onClick={() => handleConnect()}
                         >
-                            <img src={userAvatar} id='avatar'></img>
+                            <Button
+                                style={{
+                                    borderRadius: '50px',
+                                    minWidth: '180px'
+                                }}
+                            >
+                                {
+                                    isConnected && user ? user.sub : 'Login'
+                                }
+                            </Button>
                         </Link>
-                        <ReactTooltip
-                            anchorId="avatar"
-                            place="bottom"
-                            content={isConnected && user ? `Unstoppable domain account: ${user.sub}` : `Not login`}
-                        />
                     </Nav>
                 </BsNavbar.Collapse>
             </Container>

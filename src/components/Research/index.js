@@ -1,3 +1,4 @@
+import { color } from "@mui/system";
 import { Col, Row } from "react-bootstrap";
 import { useNavigate } from 'react-router-dom';
 import Image1 from '../../assets/img/article1.jpeg'
@@ -34,8 +35,14 @@ const Research = () => {
     return (
         <Row className="research-component">
             <section className="new-research">
-                <button className="explainer-video">
-                    Explainer Video
+                <button
+                    className="explainer-video"
+                >
+                    <a
+                        href="https://www.youtube.com/watch?v=lAxw35kjUzI"
+                    >
+                        Explainer Video
+                    </a>
                 </button>
                 <section className="content">
                     #DeSci

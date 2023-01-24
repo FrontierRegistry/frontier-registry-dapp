@@ -28,7 +28,7 @@ const App = () => {
           <Routes>
             <Route path='/' element={< Main />} />
             <Route path='/new-research' element={<NewResearch />} />
-            <Route path='/my-researches' element={<MyResearches />} />
+            <Route path='/my-research' element={<MyResearches />} />
             <Route path='/detail-research/:id' element={<DetailResearch />} />
           </Routes>
           {/* </ScrollToTop> */}

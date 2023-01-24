@@ -6,7 +6,6 @@ import reportWebVitals from './reportWebVitals';
 import './index.css';
 import providerOptions from './services/providerOptions'
 import { Web3ModalProvider } from './services/Web3ModalContext'
-import "react-tooltip/dist/react-tooltip.css";
 
 const root = createRoot(document.getElementById('root'));
 root.render(

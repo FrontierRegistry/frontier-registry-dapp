@@ -11,6 +11,7 @@ import {
 
 const uauthOptions = {
   clientID: REACT_APP_CLIENT_ID,
+  // redirectUri: REACT_APP_REDIRECT_URI,
   redirectUri: REACT_APP_DEPLOY_URL,
   scope: 'openid wallet email profile:optional social:optional',
 }
