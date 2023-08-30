@@ -10,9 +10,9 @@ const Banner = () => {
                 <section id="text1">
 
                 </section>
-                <section id="text2">
+                {/* <section id="text2">
                     ...edit me...
-                </section>
+                </section> */}
                 <section id="text3">
                     FrontierDAO   #DeSci
                 </section>

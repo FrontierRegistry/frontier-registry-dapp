@@ -8,7 +8,7 @@ export const navLinks = [
         href: '/new-research',
     },
     {
-        name: 'My Researches',
+        name: 'My Research',
         href: '/my-researches',
     },
 ];

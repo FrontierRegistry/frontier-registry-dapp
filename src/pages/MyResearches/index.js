@@ -28,7 +28,6 @@ const MyResearches = () => {
       console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>33333333333333333");
       const myResearchList = await contract.methods.getResearchesByWallet(account[0]).call();
       console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>444444444444444");
-      console.log("my researches: ", myResearchList);
       const myResearches = myResearchList.map((item, _) => (
         {
           title: item.title,
@@ -37,8 +36,6 @@ const MyResearches = () => {
         }
       ));
       setMyResearches(myResearches);
-
-      console.log("my researches: ", myResearchList);
     })();
   }, [wallet, provider]);
 
@@ -77,7 +74,7 @@ const MyResearches = () => {
         </Col>
         <Col md="8" className='my-researches-component'>
           <div className='my-researches-title'>
-            My Researches
+            My Research
           </div>
           {
             myResearches.map((item, index) => (

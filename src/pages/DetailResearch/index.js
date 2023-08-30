@@ -25,7 +25,6 @@ const DetailResearch = () => {
       console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>33333333333333333");
       const myResearchList = await contract.methods.getResearchesByWallet(account[0]).call();
       console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>444444444444444");
-      console.log("my researches: ", myResearchList);
       const myCurrentResearch = {
         title: myResearchList[id].title,
         content: myResearchList[id].content.replace(/(?:\r\n|\r|\n)/g, '\n'),

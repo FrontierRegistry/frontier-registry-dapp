@@ -87,7 +87,7 @@ const Header = () => {
                             New Research
                         </Link>
                         <Link to='/my-researches' aria-current='page' className='custom-link-button custom-nav-link'>
-                            My Researches
+                            My Research
                         </Link>
                         {/* <Link to='#' aria-current='page' className='custom-link-button custom-nav-link'>
                             #DeSci
