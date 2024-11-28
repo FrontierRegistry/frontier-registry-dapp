@@ -1,1 +1,1 @@
-# Frontier Research Dapp
+# Frontier Registry Dapp
